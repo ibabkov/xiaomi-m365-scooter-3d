@@ -9,9 +9,16 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Is available via `getRuntimeConfig.ts`
   publicRuntimeConfig: {
     IS_DEV_MODE: IS_DEV_MODE,
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.glsl$/,
+      loader: 'webpack-glsl-loader',
+    });
+
+    return config;
   },
 };
 
