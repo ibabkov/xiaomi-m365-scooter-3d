@@ -1,0 +1,60 @@
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  opacity: 1;
+  width: 320px;
+  animation: fade-in 0.3 linear;
+  pointer-events: none;
+}
+
+.container-hidden {
+  opacity: 0;
+}
+
+.content {
+  padding: 16px 24px;
+  background-color: rgba(0 0 0 / 60%);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.title {
+  padding-bottom: 8px;
+  display: block;
+  color: #f1f1f1;
+  font-size: 19px;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.text {
+  display: block;
+  color: #d4d4d4;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: normal;
+}
+
+.aim {
+  width: 64px;
+  height: 64px;
+  transform: translateY(32px);
+  background: url('/xiaomi-scooter/aim.gif');
+  background-size: cover;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

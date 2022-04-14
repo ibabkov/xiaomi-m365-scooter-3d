@@ -1,0 +1,14 @@
+.container {
+  color: #dfd6dc;
+  opacity: 1;
+  transition: opacity 0.7s ease-out;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 24px;
+  font-weight: 300;
+  transform: translate(-51%, 0);
+}
+
+.container-hidden {
+  opacity: 0;
+}
