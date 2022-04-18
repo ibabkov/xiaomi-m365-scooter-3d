@@ -8,6 +8,7 @@ const nextConfig = {
   webpack5: true,
   eslint: {
     ignoreDuringBuilds: true,
+    dirs: ['pages', 'src'],
   },
   publicRuntimeConfig: {
     IS_DEV_MODE: IS_DEV_MODE,
