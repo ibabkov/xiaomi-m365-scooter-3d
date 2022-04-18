@@ -1,27 +1,26 @@
 import React from 'react';
 
 import classnames from 'classnames';
-import { Html } from '@react-three/drei';
 
 import styles from './Annotation.module.css';
 
 export interface IAnnotationProps {
-  contentPage: boolean;
+  hidden: boolean;
 }
 
-export const Annotation: React.FC<IAnnotationProps> = (props) => {
-  const { contentPage } = props;
+const AnnotationComponent: React.FC<IAnnotationProps> = (props) => {
+  const { hidden } = props;
 
   return (
-    <Html scale={0.3} position={[0, -0.5, 0]}>
-      <div
-        className={classnames(
-          styles['container'],
-          contentPage && styles['container-hidden']
-        )}
-      >
-        Xiaomi M365 Scooter
-      </div>
-    </Html>
+    <div
+      className={classnames(
+        styles['container'],
+        hidden && styles['container-hidden']
+      )}
+    >
+      Xiaomi M365 Scooter
+    </div>
   );
 };
+
+export const Annotation = React.memo(AnnotationComponent);

@@ -4,10 +4,11 @@ Xiaomi M365 Scooter 3D visualization with scroll-based control
 
 ## Main features
 - GLTF(Draco compressed) animated model 3D Model
-- Custom shadow (with animated shader material)
+- Animated shader materials
 - Scroll based controls
+- Model-based camera animation
 - Attention to the app performance
-- Huge attention to the performance
+- Huge attention to the app performance
 - React-based Three.js architecture
 
 ## Getting Started

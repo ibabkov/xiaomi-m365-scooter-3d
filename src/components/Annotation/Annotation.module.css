@@ -1,5 +1,5 @@
 .container {
-  color: #dfd6dc;
+  color: #b5b5b5;
   opacity: 1;
   transition: opacity 0.7s ease-out;
   display: inline-block;
@@ -7,6 +7,12 @@
   font-size: 24px;
   font-weight: 300;
   transform: translate(-51%, 0);
+  background: #1e1e1e85;
+  padding: 6px;
+  border-radius: 8px;
+  width: 320px;
+  text-align: center;
+  border: 1px solid #111;
 }
 
 .container-hidden {

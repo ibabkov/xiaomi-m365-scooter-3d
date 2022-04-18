@@ -6,7 +6,7 @@
   justify-content: center;
   text-align: center;
   font-size: 24px;
-  animation: fade-in 0.5s linear;
+  animation: fade-in 2s linear;
 }
 
 .container::after {
@@ -34,7 +34,11 @@
 }
 
 @keyframes fade-in {
-  from {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
     opacity: 0;
   }
 

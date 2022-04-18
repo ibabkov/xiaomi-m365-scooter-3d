@@ -1,54 +1,48 @@
 import React from 'react';
 
-import { ScrollControls } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { update as tweenUpdate } from '@tweenjs/tween.js';
+import { ACESFilmicToneMapping, PCFSoftShadowMap, sRGBEncoding } from 'three';
+import { Canvas, RootState } from '@react-three/fiber';
 
-import { ScrollControl } from '../../objects/ScrollControl';
-import { Scooter } from '../../objects/Scooter';
-import { Lights } from '../../objects/Lights';
-import { useScooterModelAnimate } from '../../hooks/useScooterModelAnimate';
-import { useScooterModelPrepare } from '../../hooks/useScooterModelPrepare';
+import {
+  useCreateScooterSceneContext,
+  useScooterSceneContext,
+} from '../../hooks/scooterSceneContext';
+import { ScrollVisualizationContainer } from '../../containers/ScrollVisualization';
+import { ScrollMotivationContainer } from '../../containers/ScrollMotivation';
+import { DescriptionContainer } from '../../containers/Description';
+import { ScooterCanvas } from '../../containers/ScooterCanvas';
+import { HtmlContainer } from '../../containers/HtmlContainer';
 
-export interface IScooterSceneProps {
-  pageIndex: number;
-  scrolling: boolean;
-  onScroll: (pageIndex: number, scrolling: boolean) => void;
-  onLoad: () => void;
-}
-
-export const ScooterScene: React.FC<IScooterSceneProps> = (props) => {
-  const { pages, frontLightPosition, model } = useScooterModelPrepare();
-  const { pageIndex, onScroll, onLoad, scrolling } = props;
-  const { scene } = model;
-  const contentPage = Boolean(pageIndex && pageIndex !== pages.length - 1);
-
-  React.useEffect(onLoad, []);
-  useFrame(() => tweenUpdate());
-  useScooterModelAnimate(model);
+export const ScooterScene: React.FC = () => {
+  const scooterSceneContext = useScooterSceneContext();
+  const scooterSceneContextValue = useCreateScooterSceneContext();
 
   return (
-    <group>
-      <Lights />
-      <ScrollControls
-        style={{ scrollBehavior: 'smooth' }}
-        distance={1.5}
-        damping={10}
-        eps={0.1}
-        pages={pages.length}
+    <>
+      <Canvas
+        dpr={[1, 3]}
+        camera={{ fov: 70 }}
+        shadows={{ enabled: true, type: PCFSoftShadowMap }}
+        onCreated={handleCreate}
       >
-        <ScrollControl
-          pageIndex={pageIndex}
-          pages={pages}
-          onScroll={onScroll}
-          scrolling={scrolling}
-        />
-        <Scooter
-          scene={scene}
-          contentPage={contentPage}
-          frontLightPosition={frontLightPosition}
-        />
-      </ScrollControls>
-    </group>
+        <scooterSceneContext.Provider value={scooterSceneContextValue}>
+          <ScooterCanvas />
+        </scooterSceneContext.Provider>
+      </Canvas>
+      <scooterSceneContext.Provider value={scooterSceneContextValue}>
+        <HtmlContainer>
+          <DescriptionContainer />
+          <ScrollMotivationContainer />
+          <ScrollVisualizationContainer />
+        </HtmlContainer>
+      </scooterSceneContext.Provider>
+    </>
   );
 };
+
+function handleCreate({ gl: renderer }: RootState) {
+  renderer.toneMapping = ACESFilmicToneMapping;
+  renderer.outputEncoding = sRGBEncoding;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = PCFSoftShadowMap;
+}
