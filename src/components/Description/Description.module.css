@@ -6,10 +6,11 @@
   align-items: center;
   top: 50%;
   left: 50%;
+  padding-bottom: 54px;
   transform: translate(-50%, -100%);
-  opacity: 1;
   width: 320px;
-  animation: fade-in 0.3 linear;
+  opacity: 1;
+  transition: opacity 0.3s linear;
   pointer-events: none;
 }
 
@@ -42,19 +43,23 @@
 }
 
 .aim {
+  position: absolute;
+  bottom: 0;
   width: 64px;
   height: 64px;
   transform: translateY(32px);
-  background: url('/xiaomi-scooter/aim.gif');
+  background: url('/xiaomi-scooter/aim.svg');
   background-size: cover;
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
+@media screen and (min-width: 600px) {
+  .container {
+    width: 500px;
   }
+}
 
-  to {
-    opacity: 1;
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 320px;
   }
 }

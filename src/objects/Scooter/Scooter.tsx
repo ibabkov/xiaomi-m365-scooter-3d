@@ -1,27 +1,22 @@
 import React from 'react';
 
-import { Group, Vector3 } from 'three';
-
-import { Annotation } from '../../components/Annotation';
-import { Shadow } from '../Shadow';
-import { ScooterFrontLight } from '../ScooterFrontLight';
+import { Group } from 'three';
 
 export interface IScooterProps {
   scene: Group;
-  contentPage: boolean;
-  frontLightPosition: Vector3;
+  annotation: React.ReactNode;
+  frontLight: React.ReactNode;
+  shadow: React.ReactNode;
 }
 
 export const Scooter: React.FC<IScooterProps> = (props) => {
-  const { scene, contentPage, frontLightPosition } = props;
+  const { scene, annotation, shadow, frontLight } = props;
 
   return (
     <group dispose={null}>
-      <primitive object={scene}>
-        <Annotation contentPage={contentPage} />
-      </primitive>
-      <ScooterFrontLight position={frontLightPosition} />
-      <Shadow />
+      <primitive object={scene}>{annotation}</primitive>
+      {frontLight}
+      {shadow}
     </group>
   );
 };

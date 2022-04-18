@@ -1,34 +1,23 @@
 import React from 'react';
 
-import { Euler } from 'three';
-import { Circle } from '@react-three/drei';
+import { Shadow as ThreeShadow } from '@react-three/drei';
+import { Vector3 } from 'three';
 
-import { vertexShader, fragmentShader } from '../../shaders/planeMaterial';
-import { useAnimateShadow } from './hooks';
+export interface IShadowProps {
+  position: Vector3;
+  scale: Vector3;
+}
 
-export const Shadow: React.FC = () => {
-  const { uMod } = useAnimateShadow();
-  const rotation = React.useMemo(
-    () => new Euler(-(Math.PI / 2), 0, Math.PI / 2),
-    []
-  );
+export const Shadow: React.FC<IShadowProps> = (props) => {
+  const { position, scale } = props;
 
   return (
-    <Circle
-      position={[0, 0, 0]}
-      args={[1, 1024]}
-      scale={[0.3, 2, 1]}
-      receiveShadow={false}
-      castShadow={false}
-      rotation={rotation}
-    >
-      <shaderMaterial
-        attach="material"
-        uniforms={{ uMod }}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        transparent
-      />
-    </Circle>
+    <ThreeShadow
+      color="black"
+      position={position}
+      scale={scale}
+      colorStop={0}
+      opacity={0.7}
+    />
   );
 };

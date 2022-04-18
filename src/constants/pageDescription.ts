@@ -1,10 +1,10 @@
 import { TPageDescription } from '../types/pageDescription';
 
-export const PAGE_DESCRIPTION: TPageDescription[] = [
+export const PAGE_DESCRIPTION: Array<TPageDescription | null> = [
   null,
   {
     title: 'One button, many uses',
-    text: 'Tap the button to turn the scooter on and hold it for three seconds to turn it off. While the scooter is on, tap once to turn the light on/off, or tap twice to switch between speed modes.',
+    text: 'Tap the button to turn the scooter on and hold it for three seconds to turn it off. While the scooter is on, tap once to turn the light, or tap twice to switch between speed modes.',
   },
   {
     title: 'Double brake system',
@@ -15,7 +15,7 @@ export const PAGE_DESCRIPTION: TPageDescription[] = [
     text: 'Red tail lights flash distinctively as a warning to pedestrians and other vehicles on the road.',
   },
   {
-    title: '8.5" front and rear pneumatic tires',
+    title: '8.5" front and rear tires',
     text: 'The front and rear 8.5" tires are made of rubber mixed material with good shock absorption and road adaptability so you cruise smoothly over most road textures.',
   },
   {

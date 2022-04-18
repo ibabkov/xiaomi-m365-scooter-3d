@@ -1,4 +1,4 @@
-import vertexShader from '../../shaders/planeMaterial/vertexShader.glsl';
-import fragmentShader from '../../shaders/planeMaterial/fragmentShader.glsl';
+import vertexShader from './/vertexShader.glsl';
+import fragmentShader from './/fragmentShader.glsl';
 
 export { vertexShader, fragmentShader };
