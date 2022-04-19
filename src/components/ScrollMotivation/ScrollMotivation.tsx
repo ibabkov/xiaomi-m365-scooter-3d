@@ -6,12 +6,11 @@ import styles from './ScrollMotivation.module.css';
 
 export interface IScrollMotivationProps {
   hidden: boolean;
-  reverse: boolean;
   text: string;
 }
 
 const ScrollMotivationComponent: React.FC<IScrollMotivationProps> = (props) => {
-  const { hidden, reverse, text } = props;
+  const { hidden, text } = props;
 
   return (
     <div
@@ -20,12 +19,7 @@ const ScrollMotivationComponent: React.FC<IScrollMotivationProps> = (props) => {
         hidden && styles['container-hidden']
       )}
     >
-      <div
-        className={classnames(
-          styles['icon'],
-          reverse && styles['icon-reverse']
-        )}
-      >
+      <div className={styles['icon']}>
         <div className={styles['chevron']} />
         <div className={styles['chevron']} />
         <div className={styles['chevron']} />

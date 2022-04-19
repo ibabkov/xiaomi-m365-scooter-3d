@@ -4,13 +4,12 @@ import { Clock, IUniform } from 'three';
 import { useFrame } from '@react-three/fiber';
 
 import { IAnimateWithScooterParams } from './types';
+import {SCOOTER_ANIMATION_DURATION} from "../../constants/scooterAnimation";
 
 enum EPhase {
   'Pause',
   Animation,
 }
-
-const DEFAULT_ANIMATION_DURATION = 0.73;
 
 export const useAnimateWithScooter = (
   params: IAnimateWithScooterParams
@@ -20,7 +19,7 @@ export const useAnimateWithScooter = (
   const uniform = React.useMemo(() => ({ value: 0 }), []);
   const clock = React.useMemo(() => new Clock(), []);
   const { totalAnimationDuration, onAnimate, totalAnimationParts = 1 } = params;
-  const duration = totalAnimationDuration * DEFAULT_ANIMATION_DURATION;
+  const duration = totalAnimationDuration * SCOOTER_ANIMATION_DURATION;
 
   const runAnimation = React.useCallback(() => setPhase(EPhase.Animation), []);
 

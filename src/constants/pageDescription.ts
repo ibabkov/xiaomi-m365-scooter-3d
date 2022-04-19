@@ -22,5 +22,4 @@ export const PAGE_DESCRIPTION: Array<TPageDescription | null> = [
     title: 'Ultra-bright headlight',
     text: 'An ultra-bright headlight for added safety when night riding.',
   },
-  null,
 ];

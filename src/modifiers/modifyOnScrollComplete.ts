@@ -13,7 +13,7 @@ export const modifyOnScrollComplete = (
   return ({ pages }) => {
     const firstPage = pageIndex === 0;
     const lastPage = pageIndex === pages.length - 1;
-    const contentPage = Boolean(!firstPage && !lastPage);
+    const contentPage = !firstPage;
 
     if (movingCamera) {
       return {};

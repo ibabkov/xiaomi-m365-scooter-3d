@@ -10,7 +10,7 @@
   transform: translate(-50%, -100%);
   width: 320px;
   opacity: 1;
-  transition: opacity 0.3s linear;
+  transition: opacity 0.2s linear;
   pointer-events: none;
 }
 
