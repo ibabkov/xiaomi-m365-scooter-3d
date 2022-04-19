@@ -7,61 +7,62 @@ import {
   useModifyScooterSceneState,
   useScooterSceneState,
 } from '../../../hooks/scooterSceneContext';
-import {
-  animateCamera,
-  computeNewPageByScroll,
-  toggleScroll,
-} from '../helpers';
+import { animateCamera, getNewPageIndex, setContainerId } from '../helpers';
 import { modifyOnScroll } from '../../../modifiers/modifyOnScroll';
 import { modifyOnScrollComplete } from '../../../modifiers/modifyOnScrollComplete';
 import { IScrollControlsState } from '../../../types/scrollControls';
 
 export const useAnimateCamera = () => {
   const { camera } = useThree();
-  const [{ page, scene, pages }] = useScooterSceneState();
+  const [{ pages }] = useScooterSceneState();
   const scrollData = useScroll() as IScrollControlsState;
   const onScroll = useModifyScooterSceneState(modifyOnScroll);
   const onScrollComplete = useModifyScooterSceneState(modifyOnScrollComplete);
-  const { index: pageIndex } = page;
-  const { movingCamera } = scene;
   const { el: container } = scrollData;
+  const [state] = React.useState({
+    offset: scrollData.offset,
+    pageIndex: 0,
+    movingCamera: false,
+  });
 
   /* ======================== SCROLL START HANDLER ======================== */
   const handleScrollStart = React.useCallback(() => {
-    const movingCamera = true;
-
-    toggleScroll(container, movingCamera);
-    onScroll({ movingCamera });
-  }, [container, onScroll]);
+    onScroll({ movingCamera: true });
+  }, [onScroll]);
 
   /* ======================== SCROLL COMPLETE HANDLER ======================== */
-  const handleScrollComplete = React.useCallback(
-    (pageIndex: number) => {
-      const movingCamera = false;
+  const handleScrollComplete = React.useCallback(() => {
+    state.movingCamera = false;
+    const { movingCamera, pageIndex } = state;
 
-      toggleScroll(container, movingCamera);
-      onScroll({ movingCamera });
-      onScrollComplete({ pageIndex, movingCamera });
-    },
-    [container, onScroll, onScrollComplete]
-  );
+    onScroll({ movingCamera });
+    onScrollComplete({
+      pageIndex,
+      movingCamera,
+    });
+  }, [onScroll, onScrollComplete]);
+
+  React.useLayoutEffect(() => setContainerId(container), [container]);
 
   /* ======================== CAMERA ANIMATION ======================== */
   useFrame(() => {
-    const newPageIndex = computeNewPageByScroll(
-      scrollData.offset,
-      pages.length
-    );
-    const animate = !movingCamera && pageIndex !== newPageIndex;
+    const { offset, pageIndex, movingCamera } = state;
+    const newOffset = Math.round(scrollData.offset * 100);
 
-    if (animate) {
+    if (!movingCamera && newOffset !== offset) {
+      const newPageIndex = getNewPageIndex(pageIndex, pages.length);
+      state.pageIndex = newPageIndex;
+      state.movingCamera = true;
+
       animateCamera({
         camera,
         page: pages[pageIndex],
         newPage: pages[newPageIndex],
         onStart: handleScrollStart,
-        onComplete: () => handleScrollComplete(newPageIndex),
+        onComplete: handleScrollComplete,
       });
     }
+
+    state.offset = newOffset;
   });
 };

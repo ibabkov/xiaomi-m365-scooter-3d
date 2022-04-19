@@ -1,0 +1,2 @@
+export const SCOOTER_ANIMATION_DURATION = 0.73;
+export const SCOOTER_RUNNING_DURATION = 0.7;

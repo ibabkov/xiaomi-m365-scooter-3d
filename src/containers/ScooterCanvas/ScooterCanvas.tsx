@@ -46,10 +46,8 @@ export const ScooterCanvas: React.FC = () => {
     <group>
       <Lights />
       <ScrollControls
-        style={{ scrollBehavior: 'smooth' }}
-        distance={1.5}
-        damping={10}
-        eps={0.1}
+        infinite={true}
+        distance={10}
         pages={pages.length}
       >
         <ScrollControl />
