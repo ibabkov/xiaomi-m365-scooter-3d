@@ -31,8 +31,8 @@ export const ScooterScene: React.FC = () => {
       </Canvas>
       <scooterSceneContext.Provider value={scooterSceneContextValue}>
         <HtmlContainer>
-          <DescriptionContainer />
           <ScrollMotivationContainer />
+          <DescriptionContainer />
           <ScrollVisualizationContainer />
         </HtmlContainer>
       </scooterSceneContext.Provider>
