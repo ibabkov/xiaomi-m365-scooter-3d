@@ -1,11 +1,11 @@
 # xiaomi-m365-scooter-3d
 
-Xiaomi M365 Scooter 3D visualization with scroll-based control
+High-end 3d visualization of the most popular Xiaomi scooter with scroll-based camera control.
 
 ## Main features
-- GLTF(Draco compressed) animated model 3D Model
+- GLTF(Draco compressed) animated 3D Model
 - Animated shader materials
-- Scroll based controls
+- Scroll-based controls
 - Model-based camera animation
 - Attention to the app performance
 - Huge attention to the app performance
