@@ -3,6 +3,7 @@
 High-end 3d visualization of the most popular Xiaomi scooter with scroll-based camera control.
 
 ## Main features
+
 - GLTF(Draco compressed) animated 3D Model
 - Animated shader materials
 - Scroll-based controls

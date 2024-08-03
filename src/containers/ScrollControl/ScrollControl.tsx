@@ -4,9 +4,9 @@ import { useSetupInitialCamera } from './hooks';
 import { useAnimateCamera } from './hooks/useAnimateCamera';
 
 export const ScrollControl: React.FC = () => {
-  useSetupInitialCamera();
+	useSetupInitialCamera();
 
-  useAnimateCamera();
+	useAnimateCamera();
 
-  return null;
+	return null;
 };
