@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 100%;
+}
+
+.title {
+	font-size: 90px;
+	line-height: 90px;
+	font-weight: 400;
+	display: block;
+	padding-bottom: 20px;
+	color: var(--title-color);
+	text-transform: uppercase;
+}
+
+.description {
+	font-size: 20px;
+	line-height: 20px;
+	font-weight: 400;
+	display: block;
+	padding-bottom: 34px;
+	color: var(--text-color);
+}

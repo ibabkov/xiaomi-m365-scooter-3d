@@ -4,49 +4,47 @@ import { Clock, IUniform } from 'three';
 import { useFrame } from '@react-three/fiber';
 
 import { IAnimateWithScooterParams } from './types';
-import {SCOOTER_ANIMATION_DURATION} from "../../constants/scooterAnimation";
+import { SCOOTER_ANIMATION_DURATION } from '../../constants/scooterAnimation';
 
 enum EPhase {
-  'Pause',
-  Animation,
+	'Pause',
+	Animation,
 }
 
-export const useAnimateWithScooter = (
-  params: IAnimateWithScooterParams
-): IUniform => {
-  const [phase, setPhase] = React.useState(EPhase.Animation);
-  const [animationPart, setAnimationPart] = React.useState(0);
-  const uniform = React.useMemo(() => ({ value: 0 }), []);
-  const clock = React.useMemo(() => new Clock(), []);
-  const { totalAnimationDuration, onAnimate, totalAnimationParts = 1 } = params;
-  const duration = totalAnimationDuration * SCOOTER_ANIMATION_DURATION;
+export const useAnimateWithScooter = (params: IAnimateWithScooterParams): IUniform => {
+	const [phase, setPhase] = React.useState(EPhase.Animation);
+	const [animationPart, setAnimationPart] = React.useState(0);
+	const uniform = React.useMemo(() => ({ value: 0 }), []);
+	const clock = React.useMemo(() => new Clock(), []);
+	const { totalAnimationDuration, onAnimate, totalAnimationParts = 1 } = params;
+	const duration = totalAnimationDuration * SCOOTER_ANIMATION_DURATION;
 
-  const runAnimation = React.useCallback(() => setPhase(EPhase.Animation), []);
+	const runAnimation = React.useCallback(() => setPhase(EPhase.Animation), []);
 
-  const stopAnimation = React.useCallback(() => {
-    const lastPart = animationPart === totalAnimationParts - 1;
-    setPhase(EPhase.Pause);
-    setAnimationPart(lastPart ? 0 : animationPart + 1);
-  }, [animationPart, totalAnimationParts]);
+	const stopAnimation = React.useCallback(() => {
+		const lastPart = animationPart === totalAnimationParts - 1;
+		setPhase(EPhase.Pause);
+		setAnimationPart(lastPart ? 0 : animationPart + 1);
+	}, [animationPart, totalAnimationParts]);
 
-  useFrame(() => {
-    const time = clock.getElapsedTime() % totalAnimationDuration;
+	useFrame(() => {
+		const time = clock.getElapsedTime() % totalAnimationDuration;
 
-    if (phase === EPhase.Animation) {
-      if (time > duration) stopAnimation();
-      else {
-        // Animate
-        uniform.value = onAnimate({
-          progress: time % duration,
-          duration,
-          animationPart,
-          totalAnimationParts,
-        });
-      }
-    } else {
-      if (time <= duration) runAnimation();
-    }
-  });
+		if (phase === EPhase.Animation) {
+			if (time > duration) stopAnimation();
+			else {
+				// Animate
+				uniform.value = onAnimate({
+					progress: time % duration,
+					duration,
+					animationPart,
+					totalAnimationParts,
+				});
+			}
+		} else {
+			if (time <= duration) runAnimation();
+		}
+	});
 
-  return uniform;
+	return uniform;
 };

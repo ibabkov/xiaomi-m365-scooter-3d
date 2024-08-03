@@ -1,0 +1,4 @@
+{
+	"target": "latest",
+	"reject": ["eslint", "@types/node"]
+}

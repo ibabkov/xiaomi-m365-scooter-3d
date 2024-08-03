@@ -8,23 +8,18 @@ import { ShadowContainer } from '../Shadow';
 import { Scooter } from '../../objects/Scooter';
 
 export interface IScooterContainerProps {
-  scene: Group;
-  playScooterAnimations: () => void;
+	scene: Group;
+	playScooterAnimations: () => void;
 }
 
-const ScooterContainerComponent: React.FC<IScooterContainerProps> = (props) => {
-  const { scene, playScooterAnimations } = props;
+const ScooterContainerComponent: React.FC<IScooterContainerProps> = props => {
+	const { scene, playScooterAnimations } = props;
 
-  React.useEffect(playScooterAnimations, []);
+	React.useEffect(playScooterAnimations, []);
 
-  return (
-    <Scooter
-      scene={scene}
-      annotation={<AnnotationContainer />}
-      frontLight={<ScooterFrontLightContainer />}
-      shadow={<ShadowContainer />}
-    />
-  );
+	return (
+		<Scooter scene={scene} annotation={<AnnotationContainer />} frontLight={<ScooterFrontLightContainer />} shadow={<ShadowContainer />} />
+	);
 };
 
 export const ScooterContainer = React.memo(ScooterContainerComponent, () => true);

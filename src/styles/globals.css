@@ -1,38 +1,38 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
 }
 
 html,
 body,
 body > div {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 body {
-  background: linear-gradient(180deg, #303030, #121212);
-  color: white;
+	background: linear-gradient(180deg, #303030, #121212);
+	color: white;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #scroll-container::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 #scroll-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }

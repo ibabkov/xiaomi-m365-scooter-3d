@@ -1,3 +1,3 @@
 export const isBrowser = () => {
-  return process.title === 'browser';
+	return process.title === 'browser';
 };

@@ -4,25 +4,25 @@ import { Object3D, Vector3 } from 'three';
 import { SpotLight } from '@react-three/drei';
 
 export interface IScooterFrontLightProps {
-  position: Vector3;
-  target: Object3D;
+	position: Vector3;
+	target: Object3D;
 }
 
-export const ScooterFrontLight: React.FC<IScooterFrontLightProps> = (props) => {
-  const { target, position } = props;
+export const ScooterFrontLight: React.FC<IScooterFrontLightProps> = props => {
+	const { target, position } = props;
 
-  return (
-    <SpotLight
-      color={'#b7b7b7'}
-      castShadow={false}
-      distance={4}
-      angle={0.01}
-      attenuation={1.5}
-      anglePower={3}
-      radiusTop={0.005}
-      radiusBottom={1}
-      target={target}
-      position={position}
-    />
-  );
+	return (
+		<SpotLight
+			color={'#b7b7b7'}
+			castShadow={false}
+			distance={4}
+			angle={0.01}
+			attenuation={1.5}
+			anglePower={3}
+			radiusTop={0.005}
+			radiusBottom={1}
+			target={target}
+			position={position}
+		/>
+	);
 };
