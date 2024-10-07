@@ -1,4 +1,5 @@
 export const CAMERA_ANIMATION_DURATION = 2000;
+export const CAMERA_ANIMATION_DELAY = 500;
 export const CAMERA_FOV = 70;
 export const CAMERA_NEAR = 0.01;
 export const CAMERA_FAR = 5;

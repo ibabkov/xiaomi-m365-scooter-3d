@@ -14,11 +14,6 @@ const ScrollMotivationComponent: React.FC<IScrollMotivationProps> = props => {
 
 	return (
 		<div className={classnames(styles['container'], hidden && styles['container-hidden'])}>
-			<div className={styles['icon']}>
-				<div className={styles['chevron']} />
-				<div className={styles['chevron']} />
-				<div className={styles['chevron']} />
-			</div>
 			{text && <span className={styles['text']}>{text}</span>}
 		</div>
 	);

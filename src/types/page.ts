@@ -1,11 +1,11 @@
 import { Vector3 } from 'three';
 
-import { TPageDescription } from './pageDescription';
+import { PageDescription } from './pageDescription';
 
-export type TPagePositionType = 'camera' | 'target';
+export type PagePositionType = 'camera' | 'target';
 
-export interface IPage {
+export interface Page {
 	camera: Vector3;
 	target: Vector3;
-	description: TPageDescription;
+	description: PageDescription;
 }

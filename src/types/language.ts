@@ -1,4 +1,4 @@
 /**
  * Supported languages
  */
-export type TLanguage = 'en';
+export type Language = 'en';

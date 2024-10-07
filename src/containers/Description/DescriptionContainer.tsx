@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { Description } from '../../components/Description';
-import { useScooterSceneState } from '../../hooks/scooterSceneContext';
+import { useStore } from '../../hooks/useStore';
 
 export const DescriptionContainer: React.FC = () => {
-	const [{ page, scene }] = useScooterSceneState();
+	const { page, scene } = useStore();
 	const { current } = page;
 	const { movingCamera } = scene;
 	const { description } = current;

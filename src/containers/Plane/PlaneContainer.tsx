@@ -2,14 +2,14 @@ import React from 'react';
 
 import { Easing } from '@tweenjs/tween.js';
 
-import { IOnAnimateParams, useAnimateWithScooter } from '../../hooks/animateWithScooter';
-import { useScooterSceneState } from '../../hooks/scooterSceneContext';
+import { IOnAnimateParams, useAnimateWithScooter } from '../../hooks/useAnimateWithScooter';
 import { Plane } from '../../objects/Plane';
+import { useStore } from '../../hooks/useStore';
 
 const DEFAULT_TOTAL_ANIMATION_PARTS = 10;
 
 export const PlaneContainer: React.FC = () => {
-	const [{ scene }] = useScooterSceneState();
+	const { scene } = useStore();
 	const { totalAnimationDuration } = scene;
 	const uniform = useAnimateWithScooter({
 		totalAnimationDuration,
