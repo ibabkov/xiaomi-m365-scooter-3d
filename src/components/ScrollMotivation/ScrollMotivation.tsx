@@ -4,12 +4,12 @@ import classnames from 'classnames';
 
 import styles from './ScrollMotivation.module.css';
 
-export interface IScrollMotivationProps {
+export type ScrollMotivationProps = {
 	hidden: boolean;
 	text: string;
-}
+};
 
-const ScrollMotivationComponent: React.FC<IScrollMotivationProps> = props => {
+const ScrollMotivationComponent: React.FC<ScrollMotivationProps> = props => {
 	const { hidden, text } = props;
 
 	return (

@@ -2,14 +2,14 @@ import React from 'react';
 
 import { Group } from 'three';
 
-export interface IScooterProps {
+export type ScooterProps = {
 	scene: Group;
 	annotation: React.ReactNode;
 	frontLight: React.ReactNode;
 	shadow: React.ReactNode;
-}
+};
 
-export const Scooter: React.FC<IScooterProps> = props => {
+export const Scooter: React.FC<ScooterProps> = props => {
 	const { scene, annotation, shadow, frontLight } = props;
 
 	return (

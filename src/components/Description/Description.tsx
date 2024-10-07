@@ -4,13 +4,13 @@ import classnames from 'classnames';
 
 import styles from './Description.module.css';
 
-export interface IScrollDownProps {
+export type ScrollDownProps = {
 	title?: string;
 	text?: string;
 	hidden: boolean;
-}
+};
 
-export const DescriptionComponent: React.FC<IScrollDownProps> = props => {
+export const DescriptionComponent: React.FC<ScrollDownProps> = props => {
 	const { title, text, hidden } = props;
 
 	return (

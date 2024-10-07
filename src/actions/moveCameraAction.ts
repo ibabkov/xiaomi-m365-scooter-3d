@@ -1,8 +1,8 @@
 import { StoreState } from '../types/store';
 
-export interface MoveCameraOptions {
+export type MoveCameraOptions = {
 	movingCamera: boolean;
-}
+};
 
 export const moveCameraAction = (set: (fn: (state: StoreState) => void) => void) => (params: MoveCameraOptions) => {
 	const { movingCamera } = params;

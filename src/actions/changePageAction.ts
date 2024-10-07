@@ -1,8 +1,8 @@
 import { StoreState } from '../types/store';
 
-export interface ChangePageOptions {
+export type ChangePageOptions = {
 	pageIndex: number;
-}
+};
 
 export const changePageAction = (set: (fn: (state: StoreState) => void) => void) => (params: ChangePageOptions) => {
 	const { pageIndex } = params;

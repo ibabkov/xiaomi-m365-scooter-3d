@@ -2,7 +2,7 @@ import { Material } from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Easing } from '@tweenjs/tween.js';
 
-import { IOnAnimateParams, useAnimateWithScooter } from '../../useAnimateWithScooter';
+import { OnAnimateOptions, useAnimateWithScooter } from '../../useAnimateWithScooter';
 import { REAR_LIGHT_OPACITY } from '../../../constants/rearLight';
 import { SCOOTER_RUNNING_DURATION } from '../../../constants/scooterAnimation';
 
@@ -22,7 +22,7 @@ export const useAnimateRearLight = (material: Material, totalAnimationDuration: 
 	});
 };
 
-function handleAnimateRearLight(params: IOnAnimateParams): number {
+function handleAnimateRearLight(params: OnAnimateOptions): number {
 	const { progress, duration } = params;
 	const startAnimationDuration = duration * START_ANIMATION_DURATION;
 	const idleDuration = duration * SCOOTER_RUNNING_DURATION;

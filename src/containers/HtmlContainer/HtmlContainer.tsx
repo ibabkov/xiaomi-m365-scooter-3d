@@ -2,11 +2,11 @@ import React from 'react';
 
 import { useStore } from '../../hooks/useStore';
 
-export interface IHtmlContainerProps {
+export type HtmlContainerProps = {
 	children: React.ReactNode;
-}
+};
 
-const HtmlContainerComponent: React.FC<IHtmlContainerProps> = props => {
+const HtmlContainerComponent: React.FC<HtmlContainerProps> = props => {
 	const { scene } = useStore();
 	const { loaded } = scene;
 	const { children } = props;

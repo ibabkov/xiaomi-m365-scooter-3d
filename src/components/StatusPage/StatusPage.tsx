@@ -2,12 +2,12 @@ import React from 'react';
 
 import styles from './StatusPage.module.css';
 
-export interface IStatusPageProps {
+export type StatusPageProps = {
 	title: string;
 	description: string;
-}
+};
 
-export const StatusPage: React.FC<IStatusPageProps> = props => {
+export const StatusPage: React.FC<StatusPageProps> = props => {
 	const { title, description } = props;
 
 	return (

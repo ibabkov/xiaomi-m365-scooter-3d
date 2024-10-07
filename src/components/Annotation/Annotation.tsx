@@ -4,11 +4,11 @@ import classnames from 'classnames';
 
 import styles from './Annotation.module.css';
 
-export interface IAnnotationProps {
+export type AnnotationProps = {
 	hidden: boolean;
-}
+};
 
-const AnnotationComponent: React.FC<IAnnotationProps> = props => {
+const AnnotationComponent: React.FC<AnnotationProps> = props => {
 	const { hidden } = props;
 
 	return <div className={classnames(styles['container'], hidden && styles['container-hidden'])}>Xiaomi M365 Scooter</div>;

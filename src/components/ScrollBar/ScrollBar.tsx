@@ -2,9 +2,9 @@ import React, { forwardRef } from 'react';
 
 import styles from './ScrollBar.module.css';
 
-export interface ScrollBarProps {
+export type ScrollBarProps = {
 	height: number;
-}
+};
 
 const ScrollBarComponent = forwardRef<HTMLDivElement, ScrollBarProps>(function ScrollBar(props, ref) {
 	const { height } = props;

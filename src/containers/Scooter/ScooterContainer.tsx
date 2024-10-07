@@ -8,13 +8,13 @@ import { ShadowContainer } from '../Shadow';
 import { Scooter } from '../../objects/Scooter';
 import { useWindowBlur } from './hooks';
 
-export interface IScooterContainerProps {
+export type ScooterContainerProps = {
 	scene: Group;
 	playScooterAnimations: () => void;
 	stopScooterAnimations: () => void;
-}
+};
 
-const ScooterContainerComponent: React.FC<IScooterContainerProps> = props => {
+const ScooterContainerComponent: React.FC<ScooterContainerProps> = props => {
 	const { scene, playScooterAnimations, stopScooterAnimations } = props;
 
 	React.useEffect(playScooterAnimations, []);

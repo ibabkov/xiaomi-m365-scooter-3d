@@ -1,12 +1,12 @@
 import { Mesh, Vector3 } from 'three';
 import { GLTF } from 'three-stdlib';
 
-import { IModelPrepareData } from '../types';
+import { ModelPrepareData } from '../types';
 import { Page, PagePositionType } from '../../../types/page';
 import { getFrontLightPosition } from './getFrontLightPosition';
 import { updateMaterials } from './updateMaterials';
 
-export const traverseModelData = (model: GLTF, initialPages: Page[]) => (): IModelPrepareData => {
+export const traverseModelData = (model: GLTF, initialPages: Page[]) => (): ModelPrepareData => {
 	const { scene, materials } = model;
 	const pages: Page[] = [...initialPages];
 	let frontLightPosition = new Vector3();

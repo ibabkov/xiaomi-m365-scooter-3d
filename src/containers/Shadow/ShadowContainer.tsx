@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber';
 import { Vector3 } from 'three';
 import { Easing } from '@tweenjs/tween.js';
 
-import { useAnimateWithScooter, IOnAnimateParams } from '../../hooks/useAnimateWithScooter';
+import { useAnimateWithScooter, OnAnimateOptions } from '../../hooks/useAnimateWithScooter';
 import { Shadow } from '../../objects/Shadow';
 import { useStore } from '../../hooks/useStore';
 
@@ -33,7 +33,7 @@ export const ShadowContainer: React.FC = () => {
 	return <Shadow position={position} scale={scale} />;
 };
 
-function handleAnimate(params: IOnAnimateParams): number {
+function handleAnimate(params: OnAnimateOptions): number {
 	const { duration, progress, animationPart, totalAnimationParts } = params;
 	const value = Math.PI * Easing.Quartic.InOut(progress / duration);
 	const lastValue = Math.sin(animationPart) / totalAnimationParts;

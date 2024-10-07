@@ -3,7 +3,7 @@ import React from 'react';
 import { Clock, IUniform } from 'three';
 import { useFrame } from '@react-three/fiber';
 
-import { IAnimateWithScooterParams } from './types';
+import { AnimateWithScooterParams } from './types';
 import { SCOOTER_ANIMATION_DURATION } from '../../constants/scooterAnimation';
 
 enum EPhase {
@@ -12,7 +12,7 @@ enum EPhase {
 }
 const clock = new Clock();
 
-export const useAnimateWithScooter = (params: IAnimateWithScooterParams): IUniform => {
+export const useAnimateWithScooter = (params: AnimateWithScooterParams): IUniform => {
 	const [phase, setPhase] = React.useState(EPhase.Animation);
 	const [animationPart, setAnimationPart] = React.useState(0);
 	const uniform = React.useMemo(() => ({ value: 0 }), []);

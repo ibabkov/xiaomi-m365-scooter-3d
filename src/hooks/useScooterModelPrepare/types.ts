@@ -3,8 +3,8 @@ import { Vector3 } from 'three';
 
 import { Page } from '../../types/page';
 
-export interface IModelPrepareData {
+export type ModelPrepareData = {
 	model: GLTF;
 	pages: Page[];
 	frontLightPosition: Vector3;
-}
+};

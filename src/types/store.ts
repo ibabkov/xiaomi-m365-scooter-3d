@@ -3,29 +3,22 @@ import { Vector3 } from 'three';
 import { Page } from './page';
 import type { moveCameraAction, changePageAction, prepareSceneAction } from '../actions';
 
-export interface PageData {
+export type PageData = {
 	index: number;
 	contentPage: boolean;
 	firstPage: boolean;
 	lastPage: boolean;
 	current: Page;
-}
+};
 
-export interface SceneData {
+export type SceneData = {
 	loaded: boolean;
 	movingCamera: boolean;
 	totalAnimationDuration: number;
 	frontLightPosition: Vector3;
-}
+};
 
-export interface SceneData {
-	loaded: boolean;
-	movingCamera: boolean;
-	totalAnimationDuration: number;
-	frontLightPosition: Vector3;
-}
-
-export interface StoreState {
+export type StoreState = {
 	page: PageData;
 	scene: SceneData;
 	pages: Page[];
@@ -34,4 +27,4 @@ export interface StoreState {
 		changePage: ReturnType<typeof changePageAction>;
 		prepareScene: ReturnType<typeof prepareSceneAction>;
 	};
-}
+};

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Easing } from '@tweenjs/tween.js';
 
-import { IOnAnimateParams, useAnimateWithScooter } from '../../hooks/useAnimateWithScooter';
+import { OnAnimateOptions, useAnimateWithScooter } from '../../hooks/useAnimateWithScooter';
 import { Plane } from '../../objects/Plane';
 import { useStore } from '../../hooks/useStore';
 
@@ -20,8 +20,8 @@ export const PlaneContainer: React.FC = () => {
 	return <Plane uniform={uniform} />;
 };
 
-function handleAnimate(params: IOnAnimateParams): number {
-	const { progress, duration, animationPart, totalAnimationParts } = params;
+function handleAnimate(options: OnAnimateOptions): number {
+	const { progress, duration, animationPart, totalAnimationParts } = options;
 	const value = Easing.Quartic.InOut(progress / duration);
 	const lastValue = animationPart / totalAnimationParts;
 
