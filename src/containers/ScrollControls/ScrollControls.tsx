@@ -42,11 +42,6 @@ export const ScrollControls: React.FC<ScrollControlsProps> = props => {
 	const { actions, pages } = useStore();
 	const { current: state } = React.useRef<ScrollControlsState>(INITIAL_STATE);
 
-	/* ======================== SCROLL START HANDLER ======================== */
-	const handleScrollStart = React.useCallback(() => {
-		actions.moveCamera({ movingCamera: true });
-	}, [actions]);
-
 	/* ======================== SCROLL COMPLETE HANDLER ======================== */
 	const handleScrollComplete = React.useCallback(() => {
 		actions.moveCamera({ movingCamera: false });
@@ -54,7 +49,7 @@ export const ScrollControls: React.FC<ScrollControlsProps> = props => {
 	}, [actions, state.pageIndex]);
 
 	/* ======================== SCROLL HANDLER ======================== */
-	const handleScroll = useHandleScroll({ state, onScroll: handleScrollStart });
+	const handleScroll = useHandleScroll({ state });
 
 	const animateScroll = useAnimateScroll({ state, pages, onComplete: handleScrollComplete });
 
@@ -75,7 +70,11 @@ export const ScrollControls: React.FC<ScrollControlsProps> = props => {
 
 			const handleWheelStart = (event: CustomEvent) => {
 				if (event.detail.deltaY >= 0) {
-					state.timeouts.animation = setTimeout(() => animateScroll('forward'), CAMERA_ANIMATION_DELAY);
+					actions.moveCamera({ movingCamera: true });
+
+					state.timeouts.animation = setTimeout(() => {
+						animateScroll('forward');
+					}, CAMERA_ANIMATION_DELAY);
 				}
 			};
 

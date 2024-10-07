@@ -6,11 +6,10 @@ import { SCROLL_TIMEOUT_DELAY, SCROLL_TOUCH_TIMEOUT_DELAY } from '../constants';
 
 export type UseHandleScrollOptions = {
 	state: ScrollControlsState;
-	onScroll: () => void;
 };
 
 export const useHandleScroll = (options: UseHandleScrollOptions) => {
-	const { state, onScroll } = options;
+	const { state } = options;
 	const lastTouchY = React.useRef<number | null>(null);
 	const scrollingTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -43,9 +42,7 @@ export const useHandleScroll = (options: UseHandleScrollOptions) => {
 				state.refs.layout.current!.dispatchEvent(endEvent);
 				if (!isWheelEvent) lastTouchY.current = null;
 			}, timeoutDelay);
-
-			onScroll();
 		},
-		[onScroll, state],
+		[state],
 	);
 };
