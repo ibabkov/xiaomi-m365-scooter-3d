@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { useScooterSceneState } from '../../hooks/scooterSceneContext';
 import { ScrollMotivation } from '../../components/ScrollMotivation';
+import { useStore } from '../../hooks/useStore';
 
 export const ScrollMotivationContainer: React.FC = () => {
-	const [{ page, scene }] = useScooterSceneState();
+	const { page, scene } = useStore();
 	const { firstPage } = page;
 	const { movingCamera } = scene;
 
 	const text = React.useMemo(() => {
-		return firstPage ? 'Scroll' : '';
+		return firstPage ? 'Scroll down' : '';
 	}, [firstPage]);
 
 	return <ScrollMotivation hidden={movingCamera} text={text} />;

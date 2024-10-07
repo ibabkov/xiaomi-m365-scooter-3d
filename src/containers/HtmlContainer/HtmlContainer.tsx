@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { useScooterSceneState } from '../../hooks/scooterSceneContext';
+import { useStore } from '../../hooks/useStore';
 
 export interface IHtmlContainerProps {
 	children: React.ReactNode;
 }
 
 const HtmlContainerComponent: React.FC<IHtmlContainerProps> = props => {
-	const [{ scene }] = useScooterSceneState();
+	const { scene } = useStore();
 	const { loaded } = scene;
 	const { children } = props;
 

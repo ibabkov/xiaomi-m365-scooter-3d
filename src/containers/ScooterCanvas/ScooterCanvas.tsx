@@ -1,25 +1,22 @@
 import React from 'react';
 
-import { ScrollControls } from '@react-three/drei';
-
-import { ScrollControl } from '../ScrollControl';
+import { ScrollControls } from '../ScrollControls';
 import { PlaneContainer } from '../Plane';
 import { ScooterContainer } from '../Scooter';
 import { Lights } from '../../objects/Lights';
-import { useScooterModelAnimate } from '../../hooks/scooterModelAnimate';
-import { useScooterModelPrepare } from '../../hooks/scooterModelPrepare';
-import { useModifyScooterSceneState, useScooterSceneState } from '../../hooks/scooterSceneContext';
-import { IModifyAfterLoadingParams, modifyOnSceneLoaded } from '../../modifiers/modifyOnSceneLoaded';
+import { useScooterModelAnimate } from '../../hooks/useScooterModelAnimate';
+import { useScooterModelPrepare } from '../../hooks/useScooterModelPrepare';
+import { useStore } from '../../hooks/useStore';
 
 export const ScooterCanvas: React.FC = () => {
-	const [{ pages, scene }] = useScooterSceneState();
+	const { pages, scene, actions } = useStore();
 	const { loaded: sceneLoaded } = scene;
 	const { frontLightPosition, model } = useScooterModelPrepare(pages);
-	const handleLoaded = useModifyScooterSceneState<IModifyAfterLoadingParams>(modifyOnSceneLoaded);
-	const { totalAnimationDuration, playScooterAnimations } = useScooterModelAnimate(model);
+	const { totalAnimationDuration, playScooterAnimations, stopScooterAnimations } = useScooterModelAnimate(model);
+	const isWindows = navigator.userAgent.includes('Windows');
 
 	React.useEffect(() => {
-		handleLoaded({
+		actions.prepareScene({
 			pages,
 			frontLightPosition,
 			totalAnimationDuration,
@@ -31,13 +28,11 @@ export const ScooterCanvas: React.FC = () => {
 	}
 
 	return (
-		<group>
+		<>
+			<ScrollControls pages={pages} distance={isWindows ? 100 : 10} />
 			<Lights />
-			<ScrollControls infinite={true} distance={10} pages={pages.length}>
-				<ScrollControl />
-				<ScooterContainer scene={model.scene} playScooterAnimations={playScooterAnimations} />
-			</ScrollControls>
+			<ScooterContainer scene={model.scene} stopScooterAnimations={stopScooterAnimations} playScooterAnimations={playScooterAnimations} />
 			<PlaneContainer />
-		</group>
+		</>
 	);
 };

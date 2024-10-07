@@ -1,6 +1,6 @@
-import { TPageDescription } from '../types/pageDescription';
+import { PageDescription } from '../types/pageDescription';
 
-export const PAGE_DESCRIPTION: Array<TPageDescription | null> = [
+export const PAGE_DESCRIPTION: Array<PageDescription | null> = [
 	null,
 	{
 		title: 'One button, many uses',

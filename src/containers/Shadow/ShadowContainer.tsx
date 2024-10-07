@@ -4,9 +4,9 @@ import { useFrame } from '@react-three/fiber';
 import { Vector3 } from 'three';
 import { Easing } from '@tweenjs/tween.js';
 
-import { useAnimateWithScooter, IOnAnimateParams } from '../../hooks/animateWithScooter';
-import { useScooterSceneState } from '../../hooks/scooterSceneContext';
+import { useAnimateWithScooter, IOnAnimateParams } from '../../hooks/useAnimateWithScooter';
 import { Shadow } from '../../objects/Shadow';
+import { useStore } from '../../hooks/useStore';
 
 const DEFAULT_SCALE = new Vector3(1.2, 0.13, 1);
 const DEFAULT_POSITION = new Vector3(0.02, 0, 0);
@@ -15,7 +15,7 @@ const DEFAULT_ANIMATION_MOD = 0.2;
 export const ShadowContainer: React.FC = () => {
 	const [scale, setScale] = React.useState(DEFAULT_SCALE);
 	const [position, setPosition] = React.useState(DEFAULT_POSITION);
-	const [{ scene }] = useScooterSceneState();
+	const { scene } = useStore();
 	const { totalAnimationDuration } = scene;
 	const { value: modY } = useAnimateWithScooter({
 		totalAnimationDuration,

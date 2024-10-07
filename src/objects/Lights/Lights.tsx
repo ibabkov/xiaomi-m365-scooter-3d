@@ -3,7 +3,7 @@ import React from 'react';
 import { Color, Object3D, DirectionalLight } from 'three';
 
 const DIRECTIONAL_LIGHTS_COLOR = new Color(0xfdeadd);
-const AMBIENT_LIGHT_COLOR = new Color(0xffffff);
+const AMBIENT_LIGHT_COLOR = new Color(0xfdeadd);
 
 const getDirectionalLightsProps = () => ({
 	target: new Object3D(),
@@ -18,10 +18,11 @@ export const Lights: React.FC = () => {
 
 	React.useEffect(() => {
 		if (light1.current && light2.current) {
-			light1.current.shadow.normalBias = 0.02;
-			light2.current.shadow.normalBias = 0.008;
+			light1.current.shadow.normalBias = 0.01;
+			light2.current.shadow.normalBias = 0.01;
+			light1.current.shadow.bias = -1;
 			light1.current.shadow.camera.far = light2.current.shadow.camera.far = 3;
-			light1.current.shadow.bias = light2.current.shadow.bias = -0.00005;
+			light1.current.shadow.camera.near = light2.current.shadow.camera.near = 0;
 		}
 	}, []);
 
@@ -33,8 +34,7 @@ export const Lights: React.FC = () => {
 				position={[-1, 1.5, -0.5]}
 				ref={light1 as React.RefObject<DirectionalLight>}
 				intensity={2 * Math.PI}
-				// intensity={2}
-				shadow-mapSize={[512, 512]}
+				shadow-mapSize={[2048, 2048]}
 			/>
 			<directionalLight
 				{...props}

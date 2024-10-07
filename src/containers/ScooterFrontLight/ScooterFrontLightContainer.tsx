@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Object3D, Vector3 } from 'three';
 
-import { useScooterSceneState } from '../../hooks/scooterSceneContext';
 import { ScooterFrontLight } from '../../objects/ScooterFrontLight';
+import { useStore } from '../../hooks/useStore';
 
 export const ScooterFrontLightContainer: React.FC = () => {
-	const [{ scene }] = useScooterSceneState();
+	const { scene } = useStore();
 	const { frontLightPosition: position } = scene;
 	const target = useFrontLightTarget(position);
 
