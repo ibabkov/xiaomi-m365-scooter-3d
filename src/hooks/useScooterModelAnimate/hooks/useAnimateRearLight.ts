@@ -1,7 +1,6 @@
 import { Material } from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Easing } from '@tweenjs/tween.js';
-import type { Group } from 'three';
 
 import { IOnAnimateParams, useAnimateWithScooter } from '../../useAnimateWithScooter';
 import { REAR_LIGHT_OPACITY } from '../../../constants/rearLight';

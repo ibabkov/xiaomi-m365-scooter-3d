@@ -45,7 +45,7 @@ export const ScrollControls: React.FC<ScrollControlsProps> = props => {
 	/* ======================== SCROLL START HANDLER ======================== */
 	const handleScrollStart = React.useCallback(() => {
 		actions.moveCamera({ movingCamera: true });
-	}, [actions, state.pageIndex]);
+	}, [actions]);
 
 	/* ======================== SCROLL COMPLETE HANDLER ======================== */
 	const handleScrollComplete = React.useCallback(() => {

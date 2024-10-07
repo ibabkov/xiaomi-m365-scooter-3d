@@ -1,7 +1,7 @@
 import { Vector3 } from 'three';
 
 import { Page } from './page';
-import { moveCameraAction, changePageAction, prepareSceneAction } from '../actions';
+import type { moveCameraAction, changePageAction, prepareSceneAction } from '../actions';
 
 export interface PageData {
 	index: number;

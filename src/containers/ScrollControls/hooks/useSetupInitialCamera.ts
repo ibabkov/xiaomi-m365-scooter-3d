@@ -16,5 +16,5 @@ export const useSetupInitialCamera = () => {
 		camera.position.y = y;
 		camera.position.z = z;
 		camera.lookAt(firstPage.target);
-	}, [pages, camera]);
+	}, [pages]);
 };
