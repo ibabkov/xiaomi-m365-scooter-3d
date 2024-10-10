@@ -6,7 +6,7 @@
 	justify-content: center;
 	text-align: center;
 	font-size: 24px;
-	animation: fade-in 2s linear;
+	animation: fade-in 1s linear;
 }
 
 .container::after {
