@@ -7,7 +7,7 @@ export type StatusPageProps = {
 	description: string;
 };
 
-export const StatusPage: React.FC<StatusPageProps> = props => {
+export const StatusPage = (props: StatusPageProps) => {
 	const { title, description } = props;
 
 	return (

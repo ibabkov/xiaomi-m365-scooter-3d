@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Html } from '@react-three/drei';
@@ -35,7 +37,7 @@ const INITIAL_STATE: ScrollControlsState = {
 	timeouts: { animation: null },
 };
 
-export const ScrollControls: React.FC<ScrollControlsProps> = props => {
+export const ScrollControls = (props: ScrollControlsProps) => {
 	const [portalLoaded, setPortalLoaded] = React.useState<boolean>(false);
 	const height = React.useMemo(() => MathUtils.clamp(props.distance, 2, 100) * 100, [props.distance]);
 	const { camera, gl } = useThree();
@@ -98,7 +100,7 @@ export const ScrollControls: React.FC<ScrollControlsProps> = props => {
 			layout.addEventListener('scrollfinish', handleWheelEnd);
 
 			return () => {
-				window.addEventListener('keydown', handleKeyDown);
+				window.removeEventListener('keydown', handleKeyDown);
 
 				layout?.removeEventListener('wheel', handleScroll);
 				layout?.removeEventListener('touchmove', handleScroll);

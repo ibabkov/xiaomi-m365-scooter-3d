@@ -9,7 +9,7 @@ export type ScrollMotivationProps = {
 	text: string;
 };
 
-const ScrollMotivationComponent: React.FC<ScrollMotivationProps> = props => {
+const ScrollMotivationComponent = (props: ScrollMotivationProps) => {
 	const { hidden, text } = props;
 
 	return (

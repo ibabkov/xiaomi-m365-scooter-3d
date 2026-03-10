@@ -11,6 +11,7 @@
 # next.js
 /.next/
 /out/
+/public
 
 # production
 /build
@@ -32,6 +33,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+next-env.d.ts
 
 # idea
 .idea

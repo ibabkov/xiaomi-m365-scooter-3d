@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { Clock, IUniform } from 'three';
+import { Timer, IUniform } from 'three';
 import { useFrame } from '@react-three/fiber';
 
 import { AnimateWithScooterParams } from './types';
 import { SCOOTER_ANIMATION_DURATION } from '../../constants/scooterAnimation';
 
 enum EPhase {
-	'Pause',
+	Pause,
 	Animation,
 }
-const clock = new Clock();
 
 export const useAnimateWithScooter = (params: AnimateWithScooterParams): IUniform => {
+	const { current: timer } = React.useRef(new Timer());
 	const [phase, setPhase] = React.useState(EPhase.Animation);
 	const [animationPart, setAnimationPart] = React.useState(0);
 	const uniform = React.useMemo(() => ({ value: 0 }), []);
@@ -27,8 +27,16 @@ export const useAnimateWithScooter = (params: AnimateWithScooterParams): IUnifor
 		setAnimationPart(lastPart ? 0 : animationPart + 1);
 	}, [animationPart, totalAnimationParts]);
 
+	React.useEffect(() => {
+		return () => {
+			timer.dispose();
+		};
+	}, [timer]);
+
 	useFrame(() => {
-		const time = clock.getElapsedTime() % totalAnimationDuration;
+		timer.update();
+
+		const time = timer.getElapsed() % totalAnimationDuration;
 
 		if (phase === EPhase.Animation) {
 			if (time > duration) {

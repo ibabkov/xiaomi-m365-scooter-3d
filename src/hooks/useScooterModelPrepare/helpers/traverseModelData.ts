@@ -8,7 +8,7 @@ import { updateMaterials } from './updateMaterials';
 
 export const traverseModelData = (model: GLTF, initialPages: Page[]) => (): ModelPrepareData => {
 	const { scene, materials } = model;
-	const pages: Page[] = [...initialPages];
+	const pages: Page[] = initialPages.map(page => ({ ...page }));
 	let frontLightPosition = new Vector3();
 
 	scene.traverse(node => {

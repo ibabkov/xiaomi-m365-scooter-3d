@@ -11,10 +11,10 @@ const getDirectionalLightsProps = () => ({
 	castShadow: true,
 });
 
-export const Lights: React.FC = () => {
+export const Lights = () => {
 	const props = React.useMemo(getDirectionalLightsProps, []);
-	const light1 = React.useRef<DirectionalLight>();
-	const light2 = React.useRef<DirectionalLight>();
+	const light1 = React.useRef<DirectionalLight>(null);
+	const light2 = React.useRef<DirectionalLight>(null);
 
 	React.useEffect(() => {
 		if (light1.current && light2.current) {
@@ -29,20 +29,8 @@ export const Lights: React.FC = () => {
 	return (
 		<>
 			<ambientLight intensity={0.1} color={AMBIENT_LIGHT_COLOR} />
-			<directionalLight
-				{...props}
-				position={[-1, 1.5, -0.5]}
-				ref={light1 as React.RefObject<DirectionalLight>}
-				intensity={2 * Math.PI}
-				shadow-mapSize={[2048, 2048]}
-			/>
-			<directionalLight
-				{...props}
-				position={[1, 1, 1]}
-				ref={light2 as React.RefObject<DirectionalLight>}
-				intensity={1.5 * Math.PI}
-				shadow-mapSize={[2048, 2048]}
-			/>
+			<directionalLight {...props} position={[-1, 1.5, -0.5]} ref={light1} intensity={2 * Math.PI} shadow-mapSize={[2048, 2048]} />
+			<directionalLight {...props} position={[1, 1, 1]} ref={light2} intensity={1.5 * Math.PI} shadow-mapSize={[2048, 2048]} />
 		</>
 	);
 };

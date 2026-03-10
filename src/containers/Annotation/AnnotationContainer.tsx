@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Html } from '@react-three/drei';
@@ -6,7 +8,7 @@ import { useThree } from '@react-three/fiber';
 import { Annotation as AnnotationComponent } from '../../components/Annotation';
 import { useStore } from '../../hooks/useStore';
 
-export const AnnotationContainer: React.FC = () => {
+export const AnnotationContainer = () => {
 	const { gl } = useThree();
 	const { page, scene } = useStore();
 	const { contentPage } = page;

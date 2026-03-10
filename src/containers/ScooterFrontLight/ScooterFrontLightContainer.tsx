@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Object3D, Vector3 } from 'three';
@@ -5,7 +7,7 @@ import { Object3D, Vector3 } from 'three';
 import { ScooterFrontLight } from '../../objects/ScooterFrontLight';
 import { useStore } from '../../hooks/useStore';
 
-export const ScooterFrontLightContainer: React.FC = () => {
+export const ScooterFrontLightContainer = () => {
 	const { scene } = useStore();
 	const { frontLightPosition: position } = scene;
 	const target = useFrontLightTarget(position);

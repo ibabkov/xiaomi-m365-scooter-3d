@@ -12,7 +12,7 @@ export type PlaneProps = {
 	uniform: IUniform;
 };
 
-const PlaneComponent: React.FC<PlaneProps> = props => {
+const PlaneComponent = (props: PlaneProps) => {
 	const [rotation] = React.useState(DEFAULT_ROTATION);
 	const { uniform } = props;
 
