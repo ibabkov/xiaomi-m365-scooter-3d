@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 
 import { Description } from '../../components/Description';
 import { useStore } from '../../hooks/useStore';
 
-export const DescriptionContainer: React.FC = () => {
+export const DescriptionContainer = () => {
 	const { page, scene } = useStore();
 	const { current } = page;
 	const { movingCamera } = scene;

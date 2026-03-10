@@ -9,7 +9,7 @@ export type ScooterProps = {
 	shadow: React.ReactNode;
 };
 
-export const Scooter: React.FC<ScooterProps> = props => {
+export const Scooter = (props: ScooterProps) => {
 	const { scene, annotation, shadow, frontLight } = props;
 
 	return (

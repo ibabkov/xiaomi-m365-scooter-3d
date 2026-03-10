@@ -10,7 +10,7 @@ export type ScrollDownProps = {
 	hidden: boolean;
 };
 
-export const DescriptionComponent: React.FC<ScrollDownProps> = props => {
+export const DescriptionComponent = (props: ScrollDownProps) => {
 	const { title, text, hidden } = props;
 
 	return (

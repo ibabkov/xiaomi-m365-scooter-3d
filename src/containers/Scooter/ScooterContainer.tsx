@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import { Group } from 'three';
@@ -14,7 +16,7 @@ export type ScooterContainerProps = {
 	stopScooterAnimations: () => void;
 };
 
-const ScooterContainerComponent: React.FC<ScooterContainerProps> = props => {
+const ScooterContainerComponent = (props: ScooterContainerProps) => {
 	const { scene, playScooterAnimations, stopScooterAnimations } = props;
 
 	React.useEffect(playScooterAnimations, []);

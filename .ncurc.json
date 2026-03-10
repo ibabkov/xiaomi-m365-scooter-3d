@@ -1,4 +1,3 @@
 {
-	"target": "latest",
-	"reject": ["eslint", "react", "react-dom", "@types/react", "@types/react-dom"]
+	"target": "latest"
 }

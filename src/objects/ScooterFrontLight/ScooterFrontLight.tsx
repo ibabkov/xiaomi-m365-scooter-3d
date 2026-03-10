@@ -8,7 +8,7 @@ export type ScooterFrontLightProps = {
 	target: Object3D;
 };
 
-export const ScooterFrontLight: React.FC<ScooterFrontLightProps> = props => {
+export const ScooterFrontLight = (props: ScooterFrontLightProps) => {
 	const { target, position } = props;
 
 	return (
