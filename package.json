@@ -40,16 +40,16 @@
 		"@types/three": "^0.183.1",
 		"@typescript-eslint/eslint-plugin": "^8.56.1",
 		"@typescript-eslint/parser": "^8.56.1",
-		"eslint": "^9.28.0",
+		"eslint": "^10.2.0",
 		"eslint-config-next": "^16.1.6",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.5",
 		"glslify": "^7.1.1",
 		"glslify-loader": "^2.0.0",
 		"husky": "^9.1.7",
-		"npm-check-updates": "^19.6.3",
+		"npm-check-updates": "^20.0.0",
 		"prettier": "^3.8.1",
 		"raw-loader": "^4.0.2",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	}
 }
