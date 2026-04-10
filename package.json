@@ -23,7 +23,7 @@
 		"@tweenjs/tween.js": "^25.0.0",
 		"classnames": "^2.5.1",
 		"immer": "^11.1.4",
-		"lodash": "^4.17.23",
+		"lodash": "^4.18.1",
 		"next": "^16.1.7",
 		"postprocessing": "^6.38.3",
 		"react": "^19.2.4",
