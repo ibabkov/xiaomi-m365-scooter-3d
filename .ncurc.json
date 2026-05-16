@@ -1,3 +1,4 @@
 {
-	"target": "latest"
+	"target": "latest",
+	"reject": ["eslint"]
 }
