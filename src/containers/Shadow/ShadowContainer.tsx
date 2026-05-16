@@ -19,13 +19,15 @@ export const ShadowContainer = () => {
 	const shadowRef = React.useRef<ShadowType>(null);
 	const { scene } = useStore();
 	const { totalAnimationDuration } = scene;
-	const { value: modY } = useAnimateWithScooter({
+	const uniform = useAnimateWithScooter({
 		totalAnimationDuration,
 		onAnimate: handleAnimate,
 	});
 
 	useFrame(() => {
 		if (shadowRef.current) {
+			const modY = uniform.value;
+
 			shadowRef.current.scale.setX(DEFAULT_SCALE.x + modY);
 			shadowRef.current.position.setX(DEFAULT_POSITION.x + modY);
 		}
