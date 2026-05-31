@@ -20,7 +20,7 @@ export const AnnotationContainer = () => {
 	const { movingCamera } = scene;
 	const isDesktop = useMediaQuery(DESKTOP_MEDIA_QUERY);
 	const portalRef = React.useRef<HTMLElement>(gl.domElement.parentNode as HTMLElement);
-return null;
+
 	return (
 		<Html portal={portalRef} scale={0.3} style={{ pointerEvents: 'none' }} position={isDesktop ? DESKTOP_POSITION : MOBILE_POSITION}>
 			<AnnotationComponent hidden={contentPage || movingCamera} />
