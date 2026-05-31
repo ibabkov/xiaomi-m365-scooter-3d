@@ -8,7 +8,6 @@ import { AnnotationContainer } from '../Annotation';
 import { ScooterFrontLightContainer } from '../ScooterFrontLight';
 import { ShadowContainer } from '../Shadow';
 import { Scooter } from '../../objects/Scooter';
-import { useWindowBlur } from './hooks';
 
 export type ScooterContainerProps = {
 	scene: Group;
@@ -17,11 +16,9 @@ export type ScooterContainerProps = {
 };
 
 const ScooterContainerComponent = (props: ScooterContainerProps) => {
-	const { scene, playScooterAnimations, stopScooterAnimations } = props;
+	const { scene, playScooterAnimations } = props;
 
 	React.useEffect(playScooterAnimations, []);
-
-	useWindowBlur(stopScooterAnimations);
 
 	return (
 		<Scooter scene={scene} annotation={<AnnotationContainer />} frontLight={<ScooterFrontLightContainer />} shadow={<ShadowContainer />} />

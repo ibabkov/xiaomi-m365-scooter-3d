@@ -10,7 +10,7 @@ import { useStore } from '../../hooks/useStore';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { DESKTOP_MEDIA_QUERY } from '../../constants/breakpoints';
 
-const MOBILE_POSITION: [number, number, number] = [0, 2, 0];
+const MOBILE_POSITION: [number, number, number] = [0, 1.9, 0];
 const DESKTOP_POSITION: [number, number, number] = [0, -0.3, 0];
 
 export const AnnotationContainer = () => {
