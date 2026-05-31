@@ -1,9 +1,9 @@
-import { Material } from 'three';
+import { Material, MeshStandardMaterial } from 'three';
 import { useFrame } from '@react-three/fiber';
 import { Easing } from '@tweenjs/tween.js';
 
 import { OnAnimateOptions, useAnimateWithScooter } from '../../useAnimateWithScooter';
-import { REAR_LIGHT_OPACITY } from '../../../constants/rearLight';
+import { REAR_LIGHT_MAX_EMISSIVE, REAR_LIGHT_MIN_EMISSIVE, REAR_LIGHT_OPACITY } from '../../../constants/rearLight';
 import { SCOOTER_RUNNING_DURATION } from '../../../constants/scooterAnimation';
 
 const START_ANIMATION_DURATION = 0.15;
@@ -16,8 +16,12 @@ export const useAnimateRearLight = (material: Material, totalAnimationDuration: 
 
 	useFrame(() => {
 		if (animation) {
-			material.opacity = REAR_LIGHT_OPACITY + uniform.value;
-			material.needsUpdate = true;
+			const rearLamp = material as MeshStandardMaterial;
+			const glowProgress = uniform.value / SCOOTER_RUNNING_DURATION;
+
+			rearLamp.opacity = REAR_LIGHT_OPACITY + uniform.value;
+			rearLamp.emissiveIntensity = REAR_LIGHT_MIN_EMISSIVE + glowProgress * (REAR_LIGHT_MAX_EMISSIVE - REAR_LIGHT_MIN_EMISSIVE);
+			rearLamp.needsUpdate = true;
 		}
 	});
 };
