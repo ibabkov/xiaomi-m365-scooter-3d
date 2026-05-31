@@ -6,6 +6,7 @@ import { immer } from 'zustand/middleware/immer';
 import { StoreState } from '../../types/store';
 import { APP_TITLE } from '../../constants/app';
 import { INITIAL_PAGES } from '../../constants/store';
+import { DEFAULT_BODY_COLOR } from '../../constants/configurator';
 import * as actions from '../../actions';
 
 export const useStore = create<StoreState>()(
@@ -26,11 +27,15 @@ export const useStore = create<StoreState>()(
 						totalAnimationDuration: 0,
 						frontLightPosition: new Vector3(),
 					},
+					configurator: {
+						bodyColor: DEFAULT_BODY_COLOR,
+					},
 					pages: INITIAL_PAGES,
 					actions: {
 						moveCamera: actions.moveCameraAction(set),
 						changePage: actions.changePageAction(set),
 						prepareScene: actions.prepareSceneAction(set),
+						setBodyColor: actions.setBodyColorAction(set),
 					},
 				};
 			},

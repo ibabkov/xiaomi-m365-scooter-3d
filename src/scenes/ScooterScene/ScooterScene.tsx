@@ -6,6 +6,7 @@ import { Html } from '@react-three/drei';
 
 import { ScrollMotivationContainer } from '../../containers/ScrollMotivation';
 import { DescriptionContainer } from '../../containers/Description';
+import { ConfiguratorContainer } from '../../containers/Configurator';
 import { ScooterCanvas } from '../../containers/ScooterCanvas';
 import { HtmlContainer } from '../../containers/HtmlContainer';
 import { CAMERA_INITIAL_OPTIONS } from '../../constants/camera';
@@ -32,6 +33,7 @@ export const ScooterScene = () => {
 			<HtmlContainer>
 				<ScrollMotivationContainer />
 				<DescriptionContainer />
+				<ConfiguratorContainer />
 			</HtmlContainer>
 		</>
 	);

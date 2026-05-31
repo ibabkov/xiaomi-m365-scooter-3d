@@ -8,6 +8,7 @@ import { ScooterContainer } from '../Scooter';
 import { Lights } from '../../objects/Lights';
 import { useScooterModelAnimate } from '../../hooks/useScooterModelAnimate';
 import { useScooterModelPrepare } from '../../hooks/useScooterModelPrepare';
+import { useBodyMaterialColor } from '../../hooks/useBodyMaterialColor';
 import { useStore } from '../../hooks/useStore';
 
 export const ScooterCanvas = () => {
@@ -16,6 +17,8 @@ export const ScooterCanvas = () => {
 	const { frontLightPosition, model, pages: preparedPages } = useScooterModelPrepare(initialPages);
 	const { totalAnimationDuration, playScooterAnimations, stopScooterAnimations } = useScooterModelAnimate(model);
 	const isWindows = navigator.userAgent.includes('Windows');
+
+	useBodyMaterialColor(model.materials);
 
 	React.useEffect(() => {
 		actions.prepareScene({
