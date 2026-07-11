@@ -34,13 +34,13 @@
 	},
 	"devDependencies": {
 		"@types/lodash": "^4.17.24",
-		"@types/node": "^25.8.0",
+		"@types/node": "^26.1.1",
 		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
 		"@types/three": "^0.184.1",
 		"@typescript-eslint/eslint-plugin": "^8.59.3",
 		"@typescript-eslint/parser": "^8.59.3",
-		"eslint": "^9.39.4",
+		"eslint": "^10.7.0",
 		"eslint-config-next": "^16.2.6",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.5",
@@ -50,6 +50,6 @@
 		"npm-check-updates": "^22.2.0",
 		"prettier": "^3.8.3",
 		"raw-loader": "^4.0.2",
-		"typescript": "^6.0.3"
+		"typescript": "^7.0.2"
 	}
 }
